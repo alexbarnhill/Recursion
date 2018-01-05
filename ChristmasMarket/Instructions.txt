@@ -1,0 +1,6 @@
+Auf dem Christkindlesmarkt gibt es unterschiedliche Waren, die in der Listewarenabsteigend
+nach Preis sortiert sind. Die rekursive Methode alle soll alle optimalen nicht-leeren Einkaufslisten ermitteln,
+d.h. jede Einkaufsliste l̈asst sich gerade noch mit geld(in der gleichen Einheit wie preis,z.B. ct) bezahlen,
+es gibt aber keinen Artikel, den Sie zus̈atzlich dazu kaufen k̈onnten. Sie d̈urfen von jeder Ware beliebig viel
+kaufen (sofern das geld reicht). Die Reihenfolge der Waren in den Einkaufslisten und die Reihenfolge der
+Einkaufslisten selbst ist irrelevant.
