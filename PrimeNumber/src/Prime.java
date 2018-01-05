@@ -9,14 +9,13 @@ public class Prime {
         ps[1] = 2;
 
         if(ps[n] == 0) {
-            int p = 2;
-            int i;
+            long p = pLR(n-1, ps);
+            int i = 0;
             do {
                 p++;
                 for(i = 1; i < n && p % ps[i] != 0; i++) {
-                    ps[n] = p;
+                   ps[n] = p;
                 }
-
             } while (i != n);
         }
 
@@ -25,6 +24,6 @@ public class Prime {
 
 
     public static void main(String[] args) {
-        System.out.println(pLRHelper(2));
+        System.out.println(pLRHelper(1000));
     }
 }
