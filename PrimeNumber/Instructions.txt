@@ -1,0 +1,23 @@
+long pKR(int n) {
+    long p = 2;
+    if (n >= 2) {
+        p = pKR(n - 1);
+        int i = 0;
+        do {
+            p++;
+            for(i = 1; i < n && p % pKR(i) != 0; i++) {
+                // pruefe, ob unter den kleineren Primzahlen ein Teiler ist
+            }
+        } while(i != n); // .... bis nur noch 1 und p Teiler von P sind
+    }
+
+    return p;
+}
+
+
+
+
+Code is inefficient
+
+Change code to use dynamic programming and as few changes as possible, so that the new form of the method is linear
+recursive.

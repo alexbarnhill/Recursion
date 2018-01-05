@@ -5,11 +5,7 @@ public class PMenge {
 
     static List<List<Long>> potentzmenge(long n) {
         List<List<Long>> pm = new ArrayList<>();
-
-        if(n == 1) {
-            List<Long> l = new ArrayList<>();
-            l.add(new Long(n));
-            pm.add(l);
+        if(n == 0) {
             List<Long> empty = new ArrayList<>();
             pm.add(empty);
             return pm;
