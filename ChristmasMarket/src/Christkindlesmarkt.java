@@ -1,26 +1,58 @@
+import org.omg.CORBA.INTERNAL;
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class Christkindlesmarkt {
     public static List<List<Ware>> alle(List<Ware> waren, long geld) {
         List<List<Ware>> llw = new ArrayList<>();
-        if(geld == 0 || waren.get(waren.size()-1).preis > geld ) {
+        if(geld == 0 || (waren.size() > 0 && waren.get(waren.size()-1).preis > geld )) {
             return llw;
         }
-        for(Ware w : waren) {
-            List<Ware> wL= new ArrayList<>();
-            if(geld - w.preis >= 0) {
-                wL.add(w);
-                List<List<Ware>> rek = alle(waren, geld - w.preis);
-                llw.addAll(rek);
-            }
+        List<Ware> wL= new ArrayList<>();
+        long startFunds = geld;
+        while(startFunds >= 0 && (waren.size() > 0 && waren.get(waren.size()-1).preis <= startFunds)) {
+            for(Ware w : waren) {
+                if(startFunds - w.preis >= 0) {
+                    wL.add(w);
+                    startFunds -= w.preis;
+                }
 
+
+            }
+        }
+
+
+        if(wL.size() > 0) {
             llw.add(wL);
+        }
+
+
+        if(waren.size() > 0) {
+            waren.remove(0);
+            llw.addAll(alle(waren, geld));
+        }
+
+        if(waren.size() > 0) {
+            waren.remove(waren.size() - 1);
+            llw.addAll(alle(waren, geld));
         }
         return llw;
     }
 
+    private static void printLists(List<List<Ware>> list, long funds) {
+        for(List<Ware> l : list) {
+            long start = funds;
+            long end = funds;
+            System.out.println("------- Starting Funds = " + start);
+            for(Ware w : l) {
+                System.out.printf("%s -- %s€ \n", w.bezeichnung, w.preis);
+                end -= w.preis;
+            }
 
+            System.out.println("------- Ending Funds = " + end);
+        }
+    }
 
     public static void main(String[] args) {
 
@@ -53,7 +85,9 @@ public class Christkindlesmarkt {
         waren.add(s2);
         waren.add(s1);
 
-        System.out.println(alle(waren, 200));
+        List<List<Ware>> lists = alle(waren, 200);
+        printLists(lists, 200);
+        System.out.println("List count: " + lists.size());
 
     }
 }

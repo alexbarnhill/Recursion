@@ -1,0 +1,4 @@
+Write a method which takes a decimal number as a parameter and converts it to binary.
+
+Ex. decimalToBinary(5)
+-> Output "101"
