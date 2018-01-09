@@ -1,10 +1,9 @@
-import org.omg.CORBA.INTERNAL;
-
 import java.util.ArrayList;
 import java.util.List;
 
 public class Christkindlesmarkt {
     public static List<List<Ware>> alle(List<Ware> waren, long geld) {
+
         List<List<Ware>> llw = new ArrayList<>();
         if(geld == 0 || (waren.size() > 0 && waren.get(waren.size()-1).preis > geld )) {
             return llw;
@@ -12,12 +11,13 @@ public class Christkindlesmarkt {
         List<Ware> wL= new ArrayList<>();
         long startFunds = geld;
         while(startFunds >= 0 && (waren.size() > 0 && waren.get(waren.size()-1).preis <= startFunds)) {
-            for(Ware w : waren) {
+        for(Ware w : waren) {
                 if(startFunds - w.preis >= 0) {
                     wL.add(w);
                     startFunds -= w.preis;
-                }
+            }
 
+            llw.add(l);
 
             }
         }
