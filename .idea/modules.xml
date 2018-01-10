@@ -2,15 +2,12 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/BinarySearch/BinarySearch.iml" filepath="$PROJECT_DIR$/BinarySearch/BinarySearch.iml" />
-      <module fileurl="file://$PROJECT_DIR$/BunnyEars/BunnyEars.iml" filepath="$PROJECT_DIR$/BunnyEars/BunnyEars.iml" />
-      <module fileurl="file://$PROJECT_DIR$/Count7/Count7.iml" filepath="$PROJECT_DIR$/Count7/Count7.iml" />
-      <module fileurl="file://$PROJECT_DIR$/DecToBin/DecToBin.iml" filepath="$PROJECT_DIR$/DecToBin/DecToBin.iml" />
-      <module fileurl="file://$PROJECT_DIR$/GridsAndRectangles/GridsAndRectangles.iml" filepath="$PROJECT_DIR$/GridsAndRectangles/GridsAndRectangles.iml" />
-      <module fileurl="file://$PROJECT_DIR$/LinearSearch/LinearSearch.iml" filepath="$PROJECT_DIR$/LinearSearch/LinearSearch.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/Recursion.iml" filepath="$PROJECT_DIR$/.idea/Recursion.iml" />
-      <module fileurl="file://$PROJECT_DIR$/StringDistance/StringDistance.iml" filepath="$PROJECT_DIR$/StringDistance/StringDistance.iml" />
+      <module fileurl="file://$PROJECT_DIR$/BinomCoefficient/BinomCoefficient.iml" filepath="$PROJECT_DIR$/BinomCoefficient/BinomCoefficient.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ChristmasMarket/ChristmasMarket.iml" filepath="$PROJECT_DIR$/ChristmasMarket/ChristmasMarket.iml" />
+      <module fileurl="file://$PROJECT_DIR$/PotenzMenge/PotenzMenge.iml" filepath="$PROJECT_DIR$/PotenzMenge/PotenzMenge.iml" />
+      <module fileurl="file://$PROJECT_DIR$/PrimeNumber/PrimeNumber.iml" filepath="$PROJECT_DIR$/PrimeNumber/PrimeNumber.iml" />
       <module fileurl="file://$PROJECT_DIR$/Tree1/Tree1.iml" filepath="$PROJECT_DIR$/Tree1/Tree1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/recursion.iml" filepath="$PROJECT_DIR$/.idea/recursion.iml" />
     </modules>
   </component>
 </project>
