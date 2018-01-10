@@ -3,40 +3,32 @@ import java.util.List;
 
 public class Christkindlesmarkt {
     public static List<List<Ware>> alle(List<Ware> waren, long geld) {
-
         List<List<Ware>> llw = new ArrayList<>();
-        if(geld == 0 || (waren.size() > 0 && waren.get(waren.size()-1).preis > geld )) {
+        if(waren.size() == 0) {
             return llw;
         }
-        List<Ware> wL= new ArrayList<>();
-        long startFunds = geld;
-        while(startFunds >= 0 && (waren.size() > 0 && waren.get(waren.size()-1).preis <= startFunds)) {
-        for(Ware w : waren) {
-                if(startFunds - w.preis >= 0) {
-                    wL.add(w);
-                    startFunds -= w.preis;
-            }
 
-            llw.add(l);
-
-            }
+        Ware w = waren.remove(0);
+        if(w.preis > geld) {
+            List<List<Ware>> l = alle(waren, geld);
+            waren.add(0, w);
+            return l;
         }
 
+        List<List<Ware>> l = alle(waren, geld);
+        llw.addAll(l);
+        waren.add(0, w);
+        l = alle(waren, geld - w.preis);
 
-        if(wL.size() > 0) {
-            llw.add(wL);
+        if(l.size() == 0) {
+            l.add(new ArrayList<>());
         }
 
-
-        if(waren.size() > 0) {
-            waren.remove(0);
-            llw.addAll(alle(waren, geld));
+        for(List<Ware> lw : l) {
+            lw.add(w);
         }
 
-        if(waren.size() > 0) {
-            waren.remove(waren.size() - 1);
-            llw.addAll(alle(waren, geld));
-        }
+        llw.addAll(l);
         return llw;
     }
 
@@ -86,7 +78,7 @@ public class Christkindlesmarkt {
         waren.add(s1);
 
         List<List<Ware>> lists = alle(waren, 200);
-        printLists(lists, 200);
+//        printLists(lists, 200);
         System.out.println("List count: " + lists.size());
 
     }
