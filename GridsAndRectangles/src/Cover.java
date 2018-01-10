@@ -57,7 +57,7 @@ public class Cover {
 
             }
             if(i < field.length - 1) {
-                System.out.println("-------------------");
+                System.out.println("------------------");
             }
 
         }
@@ -81,6 +81,9 @@ public class Cover {
         Rectangle r = rects.remove(0);
 
         result = solveHelper(used, rects);
+        if(result) {
+            return true;
+        }
         rects.add(0, r);
 
 
@@ -90,23 +93,27 @@ public class Cover {
                 if(fits(used, row, column, r)) {
                     toggleRectangle(used, row, column, r);
                     rects.remove(r);
-                    return solveHelper(used, rects);
+                    if(!solveHelper(used, rects)) {
+                        toggleRectangle(used, row, column, r);
+                        rects.add(0, r);
+                    }
                 }
             }
         }
 
-        return result;
+        printField(used);
+        return isSolved(used);
     }
 
     public static void main(String[] args) {
 
         Cover c = new Cover(5, 5);
 
-        Rectangle r1 = new Rectangle(2, 3);
-        Rectangle r2 = new Rectangle(3, 3);
-        Rectangle r3 = new Rectangle(2, 2);
-        Rectangle r4 = new Rectangle(2, 2);
-        Rectangle r5 = new Rectangle(1,2);
+        Rectangle r1 = new Rectangle(5, 1);
+        Rectangle r2 = new Rectangle(5, 1);
+        Rectangle r3 = new Rectangle(5, 1);
+        Rectangle r4 = new Rectangle(5, 1);
+        Rectangle r5 = new Rectangle(5, 1);
 
         LinkedList<Rectangle> rects = new LinkedList<>();
         rects.add(r1);
