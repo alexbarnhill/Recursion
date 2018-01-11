@@ -5,16 +5,19 @@ public class QueenPlacement {
         if(row > board.length || column > board[0].length) {
             throw new IllegalArgumentException();
         }
-
         for(int i = 0; i < board.length; i++) {
             for(int j = 0; j < board[i].length; j++) {
                 // All in the same row
                 if(i == row && board[i][j]) {
                     return true;
+
                     // All in the same column
                 } else if(j == column && board[i][j]) {
                     return true;
-                } else if((j + i == row + column) || (j - i == row - column)) {
+
+                } else if(board[i][j] && ((i + j) == row + column)) {
+                    return true;
+                } else if(board[i][j] && ((i - j) == row - column)) {
                     return true;
                 }
             }
@@ -37,36 +40,37 @@ public class QueenPlacement {
                 } else {
                     System.out.printf("%s\n", field[i][j] ? "X" : " " );
                 }
-
             }
             if(i < field.length - 1) {
-                System.out.println("------------------");
+                System.out.println("---------------------------------------");
             }
-
         }
         System.out.println();
     }
 
     private static boolean placeHelper(boolean[][] board, int queens) {
         if(queens == 0) {
+            printField(board);
             return true;
         }
 
         for(int i = 0; i < board.length; i++) {
             for(int j = 0; j < board[i].length; j++) {
-                if(!isAttacked(i, j, board)) {
-                    board[i][j] = true;
+                if(isAttacked(i, j, board)) {
+                    continue;
                 }
-
+                board[i][j] = true;
                 if(placeHelper(board, queens - 1)) {
                     return true;
                 }
                 board[i][j] = false;
+
             }
         }
+
         return false;
     }
     public static void main(String[] args) {
-        System.out.println(place(5, 5, 10));
+        System.out.println(place(10, 10, 6));
     }
 }
